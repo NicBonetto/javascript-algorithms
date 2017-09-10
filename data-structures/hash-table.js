@@ -21,3 +21,12 @@ HashTable.prototype.insert = function(key, value) {
     this.numberOfValues++
   }
 }
+
+HashTable.prototype.remove = function(key) {
+  const hash = this.computeHash(key)
+
+  if(this.values.hasOwnProperty(hash) && this.values[hash].hasOwnProperty(key)) {
+    delete this.values[hash][key]
+    this.numberOfValues--
+  }
+}
